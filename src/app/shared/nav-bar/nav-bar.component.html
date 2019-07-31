@@ -1,0 +1,16 @@
+<nav class="custom-navbar-container">
+  <a routerLink="/new-stories" class="icon-logo" (click)="mobileOpen=false;">
+
+  </a>
+  <ul class="right-navigation">
+    <li><a routerLink="/new-stories" routerLinkActive="active">New Stories</a></li>
+    <li><a routerLink="/top-stories" routerLinkActive="active">Top Stories</a></li>
+    <li><a routerLink="/best-stories" routerLinkActive="active">Best Stories</a></li>
+  </ul>
+  <i class="material-icons mobile-menu" (click)="toggleNav()">menu</i>
+  <ul class="mobile-nav" *ngIf="mobileOpen">
+    <li><a routerLink="/new-stories" routerLinkActive="active" (click)="toggleNav()">New Stories</a></li>
+    <li><a routerLink="/top-stories" routerLinkActive="active" (click)="toggleNav()">Top Stories</a></li>
+    <li><a routerLink="/best-stories" routerLinkActive="active" (click)="toggleNav()">Best Stories</a></li>
+  </ul>
+</nav>

@@ -1,0 +1,31 @@
+<div class="tree-container">
+
+  <div class="comment-container">
+    <section class="comment-header">
+      <span class="expand" (click)="expand()" *ngIf="node.kids && !isOpen">
+
+      </span>
+      <span class="comment-arrow" *ngIf="!node.kids">
+
+      </span>
+      <p *ngIf="!node.deleted" class="comment-info">by <span class="user">{{node.by}}</span> - <span class="time">{{node.time | customDate}}</span></p>
+      <p class="comment-info" *ngIf="node.deleted">Comment is deleted - <span class="time">{{node.time | customDate}}</span></p>
+    </section>
+    <span class="collapse" (click)="expand()" *ngIf="isOpen">
+
+    </span>
+    <section class="comment-main">
+      <div [innerHTML]="node.text">
+        class="comment-text">
+
+      </div>
+
+      <section class="comment-replays" *ngIf="isOpen">
+        <app-comments-tree *ngFor="let child of node.kids" [node]="child"></app-comments-tree>
+      </section>
+    </section>
+
+  </div>
+  
+</div>
+

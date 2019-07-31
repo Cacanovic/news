@@ -1,0 +1,12 @@
+<div class="comment-container" *ngIf="selectedStory && selectedStory.kids">
+
+  <div class="story">
+    <h1>{{selectedStory.title}}</h1>
+    <p>Posted by {{selectedStory.by}} - {{selectedStory.time | customDate}} <span class="comment-cont"><i class="material-icons">comment</i> {{selectedStory.descendants | numberK}} comments</span></p>
+  </div>
+
+
+  <app-comments-tree *ngFor="let node of commentsTree;" [node]="node"></app-comments-tree>
+</div>
+<h3 *ngIf="selectedStory && !selectedStory.kids">There aren't any comments for selected news.</h3>
+

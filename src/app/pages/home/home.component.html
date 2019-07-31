@@ -1,0 +1,25 @@
+<section class="main-section">
+
+  <div class="story-card" *ngFor="let story of storiesToShow;">
+    <div class="story-score">
+      <i class="material-icons">thumb_up_alt</i>
+      <p>{{story.score | numberK}}</p>
+      <i class="material-icons">thumb_down_alt</i>
+    </div>
+    <div class="story-main">
+      <a href="{{story.url}}" target="_blank" class="story-title">{{story.title}}</a>
+      <div class="story-info">
+        <span>Posted by {{story.by}} {{story.time | customDate}}</span>
+        <a [routerLink]="['/comments', story.id]" class="comment"><i class="material-icons">comment</i> {{story.descendants | numberK}} Comments</a>
+      </div>
+    </div>
+  </div>
+
+  <mat-paginator *ngIf="allStories.length"
+                 [length]="allStories.length"
+                 [pageSize]="pageSize"
+                 [pageSizeOptions]="pageLimit"
+                 (page)="changePage($event)">
+  </mat-paginator>
+
+</section>
